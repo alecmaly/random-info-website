@@ -170,6 +170,11 @@ app.post('/sendEmail', async (req,res) => {
 })
 
 
+app.get('/ping', (req, res) => {
+  console.log('pinged')
+  res.send('pinged')
+})
+
 // get random data
 app.get('*', async (req, res) => {
   try {
