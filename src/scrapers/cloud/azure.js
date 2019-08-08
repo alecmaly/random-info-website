@@ -27,7 +27,7 @@ module.exports  = async (axios, cheerio) => {
       return `
         <a class='name' href='${url}'>Azure Service</a>:<br>
         ${service_name}<br>
-        <a href='${service_url}' target='_blank'>${service_url}</a><br>
+        <a href='${service_url}''>${service_url}</a><br>
         ${service_description}<br>
       `
     })

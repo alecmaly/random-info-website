@@ -27,7 +27,7 @@ module.exports  = async (axios, cheerio) => {
       return `
         <a class='name' href='${url}'>C++</a>:<br>
         ${item_name}<br>
-        <a href='${item_url}' target='_blank'>${item_url}</a><br>
+        <a href='${item_url}''>${item_url}</a><br>
         ${item_category}<br>
       `
     })
