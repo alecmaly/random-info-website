@@ -24,7 +24,7 @@ module.exports = async (axios, cheerio) => {
       // console.log()
 
       return `
-        Bash Command:<br>
+        <a class='name' href='${url}'>Bash Command</a>:<br>
         ${command_name}<br>
         ${command_description}<br>
         <a href='${command_url}' target='_blank'>${command_url}</a><br>

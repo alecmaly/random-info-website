@@ -23,7 +23,15 @@ app.use(express.json())
 
 // run syncronously
 async function getDataHTML() {
-  let html = '',
+  let html = `
+  <style>
+    .name {
+      color: black;
+      font-size: 105%;
+      font-weight: 600;
+    }
+  </style>
+  `,
       promiseArr = [];
 
   // pentesting tools
@@ -102,9 +110,17 @@ async function getDataHTML() {
 
   html += `
     <h2>Useful Links:</h2>
-    <a href='https://www.exploit-db.com/' target='_blank'>https://www.exploit-db.com/</a><br>
-    <a href='https://www.cvedetails.com' target='_blank'>CVE Details</a><br>
-    <a href='https://www.exploit-db.com/google-hacking-database' target='_blank'>Google Hacking Database</a>
+    <ul>
+      <li>
+        <a href='https://www.exploit-db.com/' target='_blank'>https://www.exploit-db.com/</a><br>
+      </li>
+      <li>
+        <a href='https://www.cvedetails.com' target='_blank'>CVE Details</a><br>
+      </li>
+      <li>
+        <a href='https://www.exploit-db.com/google-hacking-database' target='_blank'>Google Hacking Database</a>
+      </li>
+    </ul>
   `
 
   return html;
