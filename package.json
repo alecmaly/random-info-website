@@ -1,0 +1,25 @@
+{
+  "name": "scraper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scrape": "node src/server.js",
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "dockerize": "docker build --rm -f Dockerfile -t alecmaly/dockerized-infosite . && docker push alecmaly/dockerized-infosite"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "cheerio": "^1.0.0-rc.3",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "nodemailer": "^6.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
