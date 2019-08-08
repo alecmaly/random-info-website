@@ -26,16 +26,16 @@ async function getDataHTML() {
   let html = '',
       promiseArr = [];
 
-  // hacking tools
+  // pentesting tools
   promiseArr.push(
     Promise.all([
       // Kali tool
-      require('./scrapers/hacking/kali_tool')(axios, cheerio),
+      require('./scrapers/pentesting/kali_tool')(axios, cheerio),
 
       // OWASP Cheat Sheet
-      require('./scrapers/hacking/OWASPCheatSheet')(axios, cheerio)
+      require('./scrapers/pentesting/OWASPCheatSheet')(axios, cheerio)
     ]).then(values => {
-      return ('<h2>Hacking Tools:</h2>' + values.join('<br>') + '<hr>')
+      return ('<h2>Pentesting Tools:</h2>' + values.join('<br>') + '<hr>')
     })
   )
 
@@ -81,6 +81,17 @@ async function getDataHTML() {
       return ('<h2>Misc:</h2>' + values.join('<br>') + '<hr>')
     })
   )
+
+  // cloud services
+  promiseArr.push(
+    Promise.all([
+      // OWASP Cheat Sheet
+      require('./scrapers/cloud/azure')(axios, cheerio)
+    ]).then(values => {
+      return ('<h2>Cloud Services:</h2>' + values.join('<br>') + '<hr>')
+    })
+  )
+
 
 
 
