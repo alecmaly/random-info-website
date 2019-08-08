@@ -25,9 +25,6 @@ app.use(express.json())
 async function getDataHTML() {
   let html = `
   <style>
-    a {
-      target: _blank
-    }
     .name {
       color: black;
       font-size: 105%;
@@ -115,13 +112,13 @@ async function getDataHTML() {
     <h2>Useful Links:</h2>
     <ul>
       <li>
-        <a href='https://www.exploit-db.com/''>https://www.exploit-db.com/</a><br>
+        <a href='https://www.exploit-db.com/' target='_blank'>https://www.exploit-db.com/</a><br>
       </li>
       <li>
-        <a href='https://www.cvedetails.com''>CVE Details</a><br>
+        <a href='https://www.cvedetails.com' target='_blank'>CVE Details</a><br>
       </li>
       <li>
-        <a href='https://www.exploit-db.com/google-hacking-database''>Google Hacking Database</a>
+        <a href='https://www.exploit-db.com/google-hacking-database' target='_blank'>Google Hacking Database</a>
       </li>
     </ul>
   `

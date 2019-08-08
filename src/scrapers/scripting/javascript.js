@@ -25,7 +25,7 @@ module.exports  = async (axios, cheerio) => {
       // console.log(random_item)
 
       return `
-        <a class='name' href='${url}'>JavaScript</a>:<br>
+        <a class='name' href='${url}' target='_blank'>JavaScript</a>:<br>
         ${item_name}<br>
         <a href='${item_url}' target='_blank'>${item_url}</a><br>
         ${item_category}<br>

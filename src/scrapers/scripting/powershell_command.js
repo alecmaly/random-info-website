@@ -31,7 +31,7 @@ module.exports  = async (axios, cheerio) => {
       // console.log()
 
       return `
-      <a class='name' href='${url}'>PowerShell Command</a>:<br>
+      <a class='name' href='${url}' target='_blank'>PowerShell Command</a>:<br>
       ${command_name}<br>
       ${command_description}<br>
       <a href='${command_url}' target='_blank'>${command_url}</a><br>
