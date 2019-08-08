@@ -58,17 +58,6 @@ async function getDataHTML() {
     })
   )
 
-  // Languages
-  promiseArr.push(
-    Promise.all([
-    // c++
-    require('./scrapers/languages/cpp')(axios, cheerio)
-
-    ]).then(values => {
-      return ('<h2>Programming Languages:</h2>' + values.join('<br>') + '<hr>')
-    })
-  )
-
   // Misc
   promiseArr.push(
     Promise.all([
@@ -92,6 +81,17 @@ async function getDataHTML() {
     })
   )
 
+
+  // Languages
+  promiseArr.push(
+    Promise.all([
+    // c++
+    require('./scrapers/languages/cpp')(axios, cheerio)
+
+    ]).then(values => {
+      return ('<h2>Programming Languages:</h2>' + values.join('<br>') + '<hr>')
+    })
+  )
 
 
 
