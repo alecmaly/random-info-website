@@ -18,13 +18,18 @@ app.use(express.json())
 
 
 
-
+const site_url = 'https://www.exploit-db.com/google-hacking-database'
 
 
 // run syncronously
 async function getDataHTML() {
   let html = `
   <style>
+    #title {
+      font-size: 110%;
+      font-weight: bold;
+      padding-bottom: 20px;
+    }
     .name {
       color: black;
       font-size: 105%;
@@ -118,9 +123,15 @@ async function getDataHTML() {
         <a href='https://www.cvedetails.com' target='_blank'>CVE Details</a><br>
       </li>
       <li>
-        <a href='https://www.exploit-db.com/google-hacking-database' target='_blank'>Google Hacking Database</a>
+        <a href='${site_url}' target='_blank'>Google Hacking Database</a>
       </li>
     </ul>
+
+    <br><br><br><br>
+
+    <div id='title'>
+      <a href='https://random-info-website.azurewebsites.net/'>Link to Random Info Web Page</a>
+    </div>
   `
 
   return html;
