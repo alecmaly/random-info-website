@@ -64,23 +64,47 @@ async function getDataHTML() {
       // javascript
       require('./scrapers/scripting/javascript')(axios, cheerio),
 
+      // typescript
+      require('./scrapers/scripting/typescript')(axios, cheerio),
+
       // python
       require('./scrapers/scripting/python')(axios, cheerio)
+
     ]).then(values => {
       return ('<h2>Scripting Languages:</h2>' + values.join('<br>') + '<hr>')
     })
   )
 
-  // Misc
+  // Programming Best Practices
   promiseArr.push(
     Promise.all([
+      // design patterns
+      require('./scrapers/programmingBestPractices/designPatterns')(axios, cheerio),
+
       // data structures
-      require('./scrapers/misc/dataStructures')(axios, cheerio),
+      require('./scrapers/programmingBestPractices/dataStructures')(axios, cheerio),
 
       // algorithms
-      require('./scrapers/misc/algorithms')(axios, cheerio)
+      require('./scrapers/programmingBestPractices/algorithms')(axios, cheerio)
     ]).then(values => {
-      return ('<h2>Misc:</h2>' + values.join('<br>') + '<hr>')
+      return ('<h2>Programming Best Practices:</h2>' + values.join('<br>') + '<hr>')
+    })
+  )
+
+  // React
+  promiseArr.push(
+    Promise.all([
+      // React Bits
+      require('./scrapers/react/reactBits')(axios, cheerio)
+
+
+    ]).then(values => {
+      return (`
+      <h2>React:</h2>
+      <p>
+        Another resource: <a href="https://github.com/enaqx/awesome-react">Awesome-React</a>
+      </p>
+      ` + values.join('<br>') + '<hr>')
     })
   )
 
@@ -105,6 +129,18 @@ async function getDataHTML() {
       return ('<h2>Programming Languages:</h2>' + values.join('<br>') + '<hr>')
     })
   )
+
+    // Other
+    promiseArr.push(
+      Promise.all([
+      // logical fallacies
+      require('./scrapers/other/logicalFallacies')(axios, cheerio)
+  
+      ]).then(values => {
+        return ('<h2>Other:</h2>' + values.join('<br>') + '<hr>')
+      })
+    )
+  
 
 
 
