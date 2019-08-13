@@ -34,7 +34,7 @@ module.exports  = async (axios, cheerio, category) => {
           // console.log(tool_name)
           // console.log(tool_url)
           // console.log(tool_category)
-          console.log(random_item)
+          // console.log(random_item)
 
           return `
             <a class='name' href='${url}' target='_blank'>${

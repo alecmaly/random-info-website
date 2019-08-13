@@ -42,11 +42,11 @@ async function getDataHTML() {
   // pentesting tools
   promiseArr.push(
     Promise.all([
-      // Kali tool
-      require('./scrapers/pentesting/kali_tool')(axios, cheerio),
-
       // OWASP Cheat Sheet
-      require('./scrapers/pentesting/OWASPCheatSheet')(axios, cheerio)
+      require('./scrapers/pentesting/OWASPCheatSheet')(axios, cheerio),
+
+      // Kali tool
+      require('./scrapers/pentesting/kali_tool')(axios, cheerio)
     ]).then(values => {
       return ('<h2>Pentesting Tools:</h2>' + values.join('<br>') + '<hr>')
     })
