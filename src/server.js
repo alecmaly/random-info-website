@@ -75,6 +75,18 @@ async function getDataHTML() {
     })
   )
 
+
+  // Windows Sysinternals
+  promiseArr.push(
+    Promise.all([
+      // Windows Sysinternals
+      require('./scrapers/windows_sysinternals/windows_sysinternals')(axios, cheerio)
+
+    ]).then(values => {
+      return ('<h2>Windows Sysinternals:</h2>' + values.join('<br>') + '<hr>')
+    })
+  )
+
   // Programming Best Practices
   promiseArr.push(
     Promise.all([
@@ -135,12 +147,12 @@ async function getDataHTML() {
       Promise.all([
       // logical fallacies
       require('./scrapers/other/logicalFallacies')(axios, cheerio)
-  
+
       ]).then(values => {
         return ('<h2>Other:</h2>' + values.join('<br>') + '<hr>')
       })
     )
-  
+
 
 
 
