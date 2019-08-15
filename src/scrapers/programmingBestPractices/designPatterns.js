@@ -25,7 +25,7 @@ module.exports  = async (axios, cheerio) => {
       // console.log(tool_name)
       // console.log(tool_url)
       // console.log(tool_category)
-      console.log(random_item.next.next.data)
+      // console.log(random_item.next.next.data)
 
       return `
         <a class='name' href='${url}' target='_blank'>Design Patterns</a>:<br>
