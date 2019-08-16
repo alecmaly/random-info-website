@@ -18,24 +18,40 @@ app.use(express.json())
 
 
 
-const site_url = 'https://www.exploit-db.com/google-hacking-database'
-
+const site_url = 'https://random-info-website.azurewebsites.net/'
+const github_url = 'https://github.com/alecjmaly/random-info-website'
 
 // run syncronously
 async function getDataHTML() {
   let html = `
-  <style>
-    #title {
-      font-size: 110%;
-      font-weight: bold;
-      padding-bottom: 20px;
-    }
-    .name {
-      color: black;
-      font-size: 105%;
-      font-weight: 600;
-    }
-  </style>
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <style>
+        #title {
+          text-align: center;
+          font-size: 110%;
+          font-weight: bold;
+          padding-bottom: 20px;
+        }
+        .name {
+          color: black;
+          font-size: 105%;
+          font-weight: 600;
+        }
+      </style>
+
+      <title>Random Info Website</title>
+    </head>
+
+    <body>
+      <h1 style='text-align:center'>
+        <a href='${site_url}' target='_blank'>
+          Random Info Website
+        </a>
+        (<a href='${github_url}' target='_blank'>github</a>)
+      </h1>
+
   `,
       promiseArr = [];
 
@@ -162,28 +178,27 @@ async function getDataHTML() {
 
 
   html += `
-    <h2>Useful Links:</h2>
-    <ul>
-      <li>
-        <a href='https://www.exploit-db.com/' target='_blank'>https://www.exploit-db.com/</a><br>
-      </li>
-      <li>
-        <a href='https://www.cvedetails.com' target='_blank'>CVE Details</a><br>
-      </li>
-      <li>
-        <a href='${site_url}' target='_blank'>Google Hacking Database</a>
-      </li>
-    </ul>
+        <h2>Useful Links:</h2>
+        <ul>
+          <li>
+            <a href='https://www.exploit-db.com/' target='_blank'>https://www.exploit-db.com/</a><br>
+          </li>
+          <li>
+            <a href='https://www.cvedetails.com' target='_blank'>CVE Details</a><br>
+          </li>
+          <li>
+            <a href='${site_url}' target='_blank'>Google Hacking Database</a>
+          </li>
+        </ul>
 
-    <br><br><br><br><br>
+        <br><br><br><br><br>
 
-    <div>
-      <a href='https://documentcloud.adobe.com/link/files/'>My Books (Adobe)</a>
-    </div>
-    <br>
-    <div id='title'>
-      <a href='https://random-info-website.azurewebsites.net/'>Link to Random Info Web Page</a>
-    </div>
+        <div>
+          <a href='https://documentcloud.adobe.com/link/files/'>My Books (Adobe)</a>
+        </div>
+        <br>
+      </body>
+    </html>
   `
 
   return html;
