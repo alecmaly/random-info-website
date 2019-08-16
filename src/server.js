@@ -187,7 +187,10 @@ async function getDataHTML() {
             <a href='https://www.cvedetails.com' target='_blank'>CVE Details</a><br>
           </li>
           <li>
-            <a href='${site_url}' target='_blank'>Google Hacking Database</a>
+            <a href='https://www.exploit-db.com/google-hacking-database' target='_blank'>Google Hacking Database</a>
+          </li>
+          <li>
+            <a href='https://www.mxtoolbox.com/NetworkTools.aspx' target='_blank'>MX Toolbox: Network Tools</a>
           </li>
         </ul>
 
