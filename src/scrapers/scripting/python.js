@@ -16,7 +16,6 @@ module.exports  = async (axios, cheerio) => {
       const item_url = random_item.attribs.href
       const item_category = random_item.parent.parent.parent.children[1].children[0].data
 
-
       // // print to screen
       // console.log('Kali Tool:');
       // console.log(tool_name)
@@ -26,9 +25,8 @@ module.exports  = async (axios, cheerio) => {
 
       return `
         <a class='name' href='${url}' target='_blank'>Python</a>:<br>
-        ${item_category}<br>
         <a href='${item_url}' target='_blank'>${item_name}</a><br>
-
+        ${item_category}<br>
       `
     })
     .catch(console.error);

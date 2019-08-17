@@ -77,6 +77,9 @@ async function getDataHTML() {
       // powershell command
       require('./scrapers/scripting/powershell_commands')(axios, cheerio),
 
+      // CMD
+      require('./scrapers/scripting/cmd_command')(axios, cheerio),
+
 
       // javascript
       require('./scrapers/scripting/javascript')(axios, cheerio),
@@ -89,6 +92,20 @@ async function getDataHTML() {
 
     ]).then(values => {
       return ('<h2>Scripting Languages:</h2>' + values.join('<br>') + '<hr>')
+    })
+  )
+
+  // database tools
+  promiseArr.push(
+    Promise.all([
+      // SQL Server
+      require('./scrapers/database/sql_server')(axios, cheerio),
+
+      // Oracle
+      require('./scrapers/database/oracle')(axios, cheerio)
+
+    ]).then(values => {
+      return ('<h2>Databases:</h2>' + values.join('<br>') + '<hr>')
     })
   )
 
