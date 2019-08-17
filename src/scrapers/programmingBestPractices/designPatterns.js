@@ -29,8 +29,7 @@ module.exports  = async (axios, cheerio) => {
 
       return `
         <a class='name' href='${url}' target='_blank'>Design Patterns</a>:<br>
-        ${item_name}<br>
-        <a href='${item_url}' target='_blank'>${item_url}</a><br>
+        <a href='${item_url}' target='_blank'>${item_name}</a><br>
         ${item_description}<br>
       `
     })

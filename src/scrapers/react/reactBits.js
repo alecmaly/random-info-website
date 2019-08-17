@@ -26,8 +26,7 @@ module.exports  = async (axios, cheerio) => {
 
       return `
         <a class='name' href='${url}' target='_blank'>React Bits - <span style='font-size:95%'>A compilation of React Patterns, techniques, tips and tricks</span></a>:<br>
-        ${item_name}<br>
-        <a href='${item_url}' target='_blank'>${item_url}</a><br>
+        <a href='${item_url}' target='_blank'>${item_name}</a><br>
         ${item_category}<br>
       `
     })

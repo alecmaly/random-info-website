@@ -75,7 +75,8 @@ async function getDataHTML() {
       require('./scrapers/scripting/bash_command')(axios, cheerio),
 
       // powershell command
-      require('./scrapers/scripting/powershell_command')(axios, cheerio),
+      require('./scrapers/scripting/powershell_commands')(axios, cheerio),
+
 
       // javascript
       require('./scrapers/scripting/javascript')(axios, cheerio),

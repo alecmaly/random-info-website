@@ -25,9 +25,8 @@ module.exports = async (axios, cheerio) => {
 
       return `
         <a class='name' href='${url}' target='_blank'>Bash Command</a>:<br>
-        ${command_name}<br>
+        <a href='${command_url}' target='_blank'>${command_name}</a><br>
         ${command_description}<br>
-        <a href='${command_url}' target='_blank'>${command_url}</a><br>
       `
 
     })

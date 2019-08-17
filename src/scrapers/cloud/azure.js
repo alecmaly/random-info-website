@@ -22,6 +22,7 @@ module.exports  = async (axios, cheerio) => {
 
       let output = '';
 
+      // build categories
       categories.forEach((category, i, arr) => {
         let min_index = category.index + 1,
             max_index,
@@ -33,6 +34,7 @@ module.exports  = async (axios, cheerio) => {
             service_description;
 
 
+        // set max index based on if last element in array
         if (i === arr.length - 1)
           max_index = divs.length
         else
@@ -66,8 +68,7 @@ module.exports  = async (axios, cheerio) => {
 
         output += `
           ${category.name}<br>
-          ${service_name}<br>
-          <a href='${service_url}' target='_blank'>${service_url}</a><br>
+          <a href='${service_url}' target='_blank'>${service_name}</a><br>
           ${service_description}<br><br>
         `
       })
