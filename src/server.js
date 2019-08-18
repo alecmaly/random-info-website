@@ -75,7 +75,7 @@ async function getDataHTML() {
     './scrapers/pentesting/OWASPCheatSheet',
     './scrapers/pentesting/kali_tool'
   ]
-  BuildSection('pentestingTools', 'Pentesting Tools:', pentesting_tools)
+  BuildSection('pentestingTools', 'Security and Pentesting:', pentesting_tools)
 
   const scripting_commands = [
     './scrapers/scripting/bash_command',
