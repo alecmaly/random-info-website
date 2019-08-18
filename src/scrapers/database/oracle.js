@@ -26,7 +26,6 @@ module.exports = async (axios, cheerio) => {
       return `
         <a class='name' href='${url}' target='_blank'>Oracle</a>:<br>
         <a href='${command_url}' target='_blank'>${command_name}</a><br>
-        ${command_description}
       `
 
     })

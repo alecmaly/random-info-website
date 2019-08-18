@@ -43,9 +43,7 @@ async function getDataHTML() {
       <div class='content'>
       <a id='home' name='home'></a>
       <h1 style='text-align:center'>
-        <a href='${site_url}}' target='_blank'>
-          Random Info Website
-        </a>
+        <a href='${site_url}}' target='_blank'>Random Info Website</a>
         (<a href='${github_url}' target='_blank'>github</a>)
       </h1>
 
