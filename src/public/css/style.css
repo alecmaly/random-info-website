@@ -1,0 +1,21 @@
+
+#title {
+  text-align: center;
+  font-size: 110%;
+  font-weight: bold;
+  padding-bottom: 20px;
+}
+.name {
+  color: black;
+  font-size: 105%;
+  font-weight: 600;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #ebebeb;
+  text-align: center;
+}

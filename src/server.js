@@ -6,7 +6,11 @@ const axios = require('axios');
 const cheerio = require('cheerio');
 const nodemailer = require('nodemailer');
 const express = require('express');
+const fs = require('fs');
 
+require.extensions['.html'] = function (module, filename) {
+  module.exports = fs.readFileSync(filename, 'utf8');
+};
 
 // import config
 require('dotenv').config()
@@ -15,11 +19,15 @@ require('dotenv').config()
 const app = express()
 const port = 80
 app.use(express.json())
-
+app.use(express.static(__dirname + '/public'));
 
 
 const site_url = 'https://random-info-website.azurewebsites.net/'
 const github_url = 'https://github.com/alecjmaly/random-info-website'
+
+
+const footer = require('./views/footer.html')
+const table_of_contents = require('./views/tableOfContents.html')
 
 // run syncronously
 async function getDataHTML() {
@@ -27,167 +35,109 @@ async function getDataHTML() {
   <!DOCTYPE html>
   <html>
     <head>
-      <style>
-        #title {
-          text-align: center;
-          font-size: 110%;
-          font-weight: bold;
-          padding-bottom: 20px;
-        }
-        .name {
-          color: black;
-          font-size: 105%;
-          font-weight: 600;
-        }
-      </style>
-
       <title>Random Info Website</title>
+      <link rel="stylesheet" href="/css/style.css">
     </head>
 
     <body>
+      <div class='content'>
+      <a id='home' name='home'></a>
       <h1 style='text-align:center'>
-        <a href='${site_url}' target='_blank'>
+        <a href='${site_url}}' target='_blank'>
           Random Info Website
         </a>
         (<a href='${github_url}' target='_blank'>github</a>)
       </h1>
 
+
+      ${table_of_contents}
   `,
-      promiseArr = [];
-
-  // pentesting tools
-  promiseArr.push(
-    Promise.all([
-      // OWASP Cheat Sheet
-      require('./scrapers/pentesting/OWASPCheatSheet')(axios, cheerio),
-
-      // Kali tool
-      require('./scrapers/pentesting/kali_tool')(axios, cheerio)
-    ]).then(values => {
-      return ('<h2>Pentesting Tools:</h2>' + values.join('<br>') + '<hr>')
-    })
-  )
-
-  // scripting
-  promiseArr.push(
-    Promise.all([
-      // bash command
-      require('./scrapers/scripting/bash_command')(axios, cheerio),
-
-      // powershell command
-      require('./scrapers/scripting/powershell_commands')(axios, cheerio),
-
-      // CMD
-      require('./scrapers/scripting/cmd_command')(axios, cheerio),
+    promiseArr = [];
 
 
-      // javascript
-      require('./scrapers/scripting/javascript')(axios, cheerio),
 
-      // typescript
-      require('./scrapers/scripting/typescript')(axios, cheerio),
-
-      // python
-      require('./scrapers/scripting/python')(axios, cheerio)
-
-    ]).then(values => {
-      return ('<h2>Scripting Languages:</h2>' + values.join('<br>') + '<hr>')
-    })
-  )
-
-  // database tools
-  promiseArr.push(
-    Promise.all([
-      // SQL Server
-      require('./scrapers/database/sql_server')(axios, cheerio),
-
-      // Oracle
-      require('./scrapers/database/oracle')(axios, cheerio)
-
-    ]).then(values => {
-      return ('<h2>Databases:</h2>' + values.join('<br>') + '<hr>')
-    })
-  )
-
-
-  // Windows Sysinternals
-  promiseArr.push(
-    Promise.all([
-      // Windows Sysinternals
-      require('./scrapers/windows_sysinternals/windows_sysinternals')(axios, cheerio)
-
-    ]).then(values => {
-      return ('<h2>Windows Sysinternals:</h2>' + values.join('<br>') + '<hr>')
-    })
-  )
-
-  // Programming Best Practices
-  promiseArr.push(
-    Promise.all([
-      // design patterns
-      require('./scrapers/programmingBestPractices/designPatterns')(axios, cheerio),
-
-      // data structures
-      require('./scrapers/programmingBestPractices/dataStructures')(axios, cheerio),
-
-      // algorithms
-      require('./scrapers/programmingBestPractices/algorithms')(axios, cheerio)
-    ]).then(values => {
-      return ('<h2>Programming Best Practices:</h2>' + values.join('<br>') + '<hr>')
-    })
-  )
-
-  // React
-  promiseArr.push(
-    Promise.all([
-      // React Bits
-      require('./scrapers/react/reactBits')(axios, cheerio)
-
-
-    ]).then(values => {
-      return (`
-      <h2>React:</h2>
-      <p>
-        Another resource: <a href="https://github.com/enaqx/awesome-react">Awesome-React</a>
-      </p>
-      ` + values.join('<br>') + '<hr>')
-    })
-  )
-
-  // cloud services
-  promiseArr.push(
-    Promise.all([
-      // OWASP Cheat Sheet
-      require('./scrapers/cloud/azure')(axios, cheerio)
-    ]).then(values => {
-      return ('<h2>Cloud Services:</h2>' + values.join('<br>') + '<hr>')
-    })
-  )
-
-
-  // Languages
-  promiseArr.push(
-    Promise.all([
-    // c++
-    require('./scrapers/languages/cpp')(axios, cheerio)
-
-    ]).then(values => {
-      return ('<h2>Programming Languages:</h2>' + values.join('<br>') + '<hr>')
-    })
-  )
-
-    // Other
+  function BuildSection(id, title, datasources, header='') {
     promiseArr.push(
-      Promise.all([
-      // logical fallacies
-      require('./scrapers/other/logicalFallacies')(axios, cheerio)
-
-      ]).then(values => {
-        return ('<h2>Other:</h2>' + values.join('<br>') + '<hr>')
+      Promise.all(
+        datasources.map(datasource => require(datasource)(axios, cheerio))
+      ).then(values => {
+        return (`
+            <a id="${id}" name="${id}""></a>
+            <h2 class="category">${title}</h2>
+          ` + header + values.join('<br>') + '<hr>')
       })
     )
+  }
 
 
+
+  const pentesting_tools = [
+    './scrapers/pentesting/OWASPCheatSheet',
+    './scrapers/pentesting/kali_tool'
+  ]
+  BuildSection('pentestingTools', 'Pentesting Tools:', pentesting_tools)
+
+  const scripting_commands = [
+    './scrapers/scripting/bash_command',
+    './scrapers/scripting/powershell_commands',
+    './scrapers/scripting/cmd_command',
+    './scrapers/scripting/javascript',
+    './scrapers/scripting/typescript',
+    './scrapers/scripting/python'
+  ]
+  BuildSection('scriptingLanguages', 'Scripting Languages:', scripting_commands)
+
+
+  const windows_sysinternals = [
+      './scrapers/windows_sysinternals/windows_sysinternals'
+  ]
+  BuildSection('windowsSysinternals', 'Windows Sysinternals:', windows_sysinternals)
+
+
+  const programming_best_practices = [
+    './scrapers/programmingBestPractices/designPatterns',
+    './scrapers/programmingBestPractices/dataStructures',
+    './scrapers/programmingBestPractices/algorithms'
+  ]
+  BuildSection('programmingBestPractices', 'Programming Best Practices:', programming_best_practices)
+
+
+  const react_js = [
+    './scrapers/react/reactBits'
+  ]
+  BuildSection('reactjs', 'React:', react_js, `
+    <p>
+      Another resource: <a href="https://github.com/enaqx/awesome-react">Awesome-React</a>
+    </p>`)
+
+
+  const cloud_services = [
+    './scrapers/cloud/azure'
+  ]
+  BuildSection('cloudServices', 'Cloud Services:', cloud_services)
+
+  const languages = [
+    './scrapers/languages/cpp'
+  ]
+  BuildSection('languages', 'Programming Languages:', languages)
+
+  const data = [
+    './scrapers/dataCentricLanguages/dax',
+    // './scrapers/dataCentricLanguages/m'
+  ]
+  BuildSection('data', 'Data Centric Languages:', data)
+
+
+  const database_tools = [
+    './scrapers/database/sql_server',
+    './scrapers/database/oracle'
+  ]
+  BuildSection('databases', 'Databases:', database_tools)
+
+  const other = [
+    './scrapers/other/logicalFallacies'
+  ]
+  BuildSection('other', 'Other:', other)
 
 
   // await all promises to return
@@ -196,28 +146,7 @@ async function getDataHTML() {
 
 
   html += `
-        <h2>Useful Links:</h2>
-        <ul>
-          <li>
-            <a href='https://www.exploit-db.com/' target='_blank'>https://www.exploit-db.com/</a><br>
-          </li>
-          <li>
-            <a href='https://www.cvedetails.com' target='_blank'>CVE Details</a><br>
-          </li>
-          <li>
-            <a href='https://www.exploit-db.com/google-hacking-database' target='_blank'>Google Hacking Database</a>
-          </li>
-          <li>
-            <a href='https://www.mxtoolbox.com/NetworkTools.aspx' target='_blank'>MX Toolbox: Network Tools</a>
-          </li>
-        </ul>
-
-        <br><br><br><br><br>
-
-        <div>
-          <a href='https://documentcloud.adobe.com/link/files/'>My Books (Adobe)</a>
-        </div>
-        <br>
+      ${footer}
       </body>
     </html>
   `
