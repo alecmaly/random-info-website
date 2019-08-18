@@ -11,11 +11,12 @@
   font-weight: 600;
 }
 
-.footer {
+#btn_goToTop {
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
   background-color: #ebebeb;
   text-align: center;
+  height: 35px;
 }
