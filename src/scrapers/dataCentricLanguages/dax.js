@@ -1,6 +1,6 @@
 module.exports  = async (axios, cheerio) => {
-  const url_root = 'https://docs.microsoft.com/en-us/dax/dax-function-reference'
-  const url = url_root;
+  const url_root = 'https://docs.microsoft.com/en-us/dax/dax-function-reference/'
+  const url = 'https://docs.microsoft.com/en-us/dax/';
 
   let promise_arr = [];
   const categories = [
@@ -28,7 +28,7 @@ module.exports  = async (axios, cheerio) => {
 
           // build command details
           const command_name = random_command.children[1].children[0].children[0].data
-          const command_url = url + random_command.children[1].children[0].attribs.href
+          const command_url = 'https://docs.microsoft.com/en-us/dax/' + random_command.children[1].children[0].attribs.href
           const h2_tags =  $('main > h1')
           const command_category = h2_tags[0].children[0].data
           let command_description = ''
