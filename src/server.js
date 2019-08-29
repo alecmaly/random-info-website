@@ -69,6 +69,22 @@ async function getDataHTML() {
 
 
 
+  const html5 = [
+    './scrapers/web/html/html_tags',
+    './scrapers/web/html/html_attributes',
+    './scrapers/web/html/html_events'
+  ]
+  BuildSection('html', 'HTML:', html5)
+
+
+  const css = [
+    './scrapers/web/css/css_properties',
+    './scrapers/web/css/css_selectors'
+  ]
+  BuildSection('css', 'CSS:', css)
+
+
+
   const pentesting_tools = [
     './scrapers/pentesting/OWASPCheatSheet',
     './scrapers/pentesting/kali_tool'
