@@ -29,7 +29,7 @@ module.exports = async (axios, cheerio) => {
       const selector_example = td_example.children[0].data.trim()
       const selector_description = td_description.children[0].data.trim()
 
-      console.log(selector_description)
+      // console.log(selector_description)
       // print to screen
       // console.log('Linux command:');
       // console.log(selector_name);

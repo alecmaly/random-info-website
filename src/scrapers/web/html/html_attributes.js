@@ -34,7 +34,7 @@ module.exports = async (axios, cheerio) => {
         htmlAttribute_url = root_url + td_name.children[0].attribs.href
       }
 
-      
+
       const htmlAttribute_belongsTo = td_belongsTo.children[0].data
       const htmlAttribute_description = td_description.children[0].data
 

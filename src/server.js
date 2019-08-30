@@ -35,12 +35,13 @@ async function getDataHTML() {
   <!DOCTYPE html>
   <html>
     <head>
+      <meta name="viewport" content="user-scalable=yes">
       <title>Random Info Website</title>
       <link rel="stylesheet" href="/css/style.css">
     </head>
 
     <body>
-      <div class='content'>
+      <div class='main-body'>
       <a id='home' name='home'></a>
       <h1 style='text-align:center'>
         <a href='${site_url}}' target='_blank'>Random Info Website</a>
@@ -54,7 +55,7 @@ async function getDataHTML() {
 
 
 
-  function BuildSection(id, title, datasources, header='') {
+  function BuildSection(id, title, datasources, header='', footer='') {
     promiseArr.push(
       Promise.all(
         datasources.map(datasource => require(datasource)(axios, cheerio))
@@ -62,7 +63,7 @@ async function getDataHTML() {
         return (`
             <a id="${id}" name="${id}""></a>
             <h2 class="category">${title}</h2>
-          ` + header + values.join('<br>') + '<hr>')
+          ` + header + values.join('<br>') + footer + '<hr>')
       })
     )
   }
@@ -74,7 +75,7 @@ async function getDataHTML() {
     './scrapers/web/html/html_attributes',
     './scrapers/web/html/html_events'
   ]
-  BuildSection('html', 'HTML:', html5)
+  BuildSection('html5', 'HTML5:', html5)
 
 
   const css = [
@@ -105,7 +106,7 @@ async function getDataHTML() {
   const windows_sysinternals = [
       './scrapers/windows_sysinternals/windows_sysinternals'
   ]
-  BuildSection('windowsSysinternals', 'Windows Sysinternals:', windows_sysinternals)
+  BuildSection('windowsSysinternals', 'Windows Sysinternals:', windows_sysinternals, "<div class='two-columns'>", "</div>")
 
 
   const programming_best_practices = [
@@ -137,7 +138,7 @@ async function getDataHTML() {
 
   const data = [
     './scrapers/dataCentricLanguages/dax',
-    // './scrapers/dataCentricLanguages/m'
+    './scrapers/dataCentricLanguages/m'
   ]
   BuildSection('data', 'Data Centric Languages:', data)
 

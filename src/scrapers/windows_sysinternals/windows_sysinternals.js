@@ -37,11 +37,13 @@ module.exports  = async (axios, cheerio, category) => {
           // console.log(random_item)
 
           return `
-            <a class='name' href='${url}' target='_blank'>${
-              titleCase(category.replace(/-/g, ' '))
-            }</a>:<br>
-            <a href='${item_url}' target='_blank'>${item_name}</a><br>
-            ${item_description}<br><br>
+            <div class='cell'>
+              <a class='name' href='${url}' target='_blank'>${
+                titleCase(category.replace(/-/g, ' '))
+              }</a>:<br>
+              <a href='${item_url}' target='_blank'>${item_name}</a><br>
+              ${item_description}<br>
+            </div>
           `
         })
         .catch(console.error)

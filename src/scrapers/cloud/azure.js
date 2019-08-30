@@ -67,15 +67,19 @@ module.exports  = async (axios, cheerio) => {
 
 
         output += `
-          ${category.name}<br>
-          <a href='${service_url}' target='_blank'>${service_name}</a><br>
-          ${service_description}<br><br>
+          <div class='cell'>
+            ${category.name}<br>
+            <a href='${service_url}' target='_blank'>${service_name}</a><br>
+            ${service_description}<br><br>
+          </div>
         `
       })
 
 
 
-      return `<a class='name' href='${url}' target='_blank'>Azure Services</a>:<br>` + output
+      return `
+      <div class='name'><a href='${url}' target='_blank'>Azure Services</a>:</div><br>
+        <div class='two-columns'>${output}</div>`
     })
     .catch(console.error);
 }

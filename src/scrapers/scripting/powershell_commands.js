@@ -49,14 +49,20 @@ module.exports  = async (axios, cheerio) => {
 
 
           return `
-            ${command_category}<br>
-            <a href='${command_url}' target='_blank'>${item_name}</a><br>
-            ${command_description}<br><br>
+            <div class='cell'>
+              ${command_category.split('.')[command_category.split('.').length - 1]}<br>
+              <a href='${command_url}' target='_blank'>${item_name}</a><br>
+              ${command_description}<br>
+            </div>
           `
         })
         .catch(console.error)
       )
     })
-  return Promise.all(promise_arr).then(value => `<a class='name' href='${url}' target='_blank'>PowerShell Commands</a>:<br>` + value.join(''))
+  return Promise.all(promise_arr)
+    .then(value => `
+      <div class='name'><a href='${url}' target='_blank'>PowerShell Commands</a>:</div><br>
+      <div class='two-columns'>${value.join('')}</div>`
+    )
 }
 
