@@ -29,6 +29,9 @@ const github_url = 'https://github.com/alecjmaly/random-info-website'
 const footer = require('./views/footer.html')
 const table_of_contents = require('./views/tableOfContents.html')
 
+const cheatsheets = require('./views/cheatsheets')()
+
+
 // run syncronously
 async function getDataHTML() {
   let html = `
@@ -50,6 +53,7 @@ async function getDataHTML() {
 
 
       ${table_of_contents}
+      ${cheatsheets}
   `,
     promiseArr = [];
 
