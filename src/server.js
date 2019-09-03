@@ -34,6 +34,21 @@ const cheatsheets = require('./views/cheatsheets')()
 
 // run syncronously
 async function getDataHTML() {
+
+  function BuildSection(id, title, datasources, header='', footer='') {
+    promiseArr.push(
+      Promise.all(
+        datasources.map(datasource => require(datasource)(axios, cheerio))
+      ).then(values => {
+        return (`
+            <a id="${id}" name="${id}""></a>
+            <h2 class="category">${title}</h2>
+          ` + header + values.join('<br>') + footer + '<hr>')
+      })
+    )
+  }
+
+
   let html = `
   <!DOCTYPE html>
   <html>
@@ -57,20 +72,6 @@ async function getDataHTML() {
   `,
     promiseArr = [];
 
-
-
-  function BuildSection(id, title, datasources, header='', footer='') {
-    promiseArr.push(
-      Promise.all(
-        datasources.map(datasource => require(datasource)(axios, cheerio))
-      ).then(values => {
-        return (`
-            <a id="${id}" name="${id}""></a>
-            <h2 class="category">${title}</h2>
-          ` + header + values.join('<br>') + footer + '<hr>')
-      })
-    )
-  }
 
 
 
@@ -161,6 +162,7 @@ async function getDataHTML() {
 
   // await all promises to return
   // allows async scrapign across all sites
+  console.log('length is: ' + promiseArr.length)
   html += await Promise.all(promiseArr).then(values => {return values.join('')})
 
 
@@ -205,7 +207,7 @@ function sendEmail(html, emailAddress, emailPassword) {
 
 
 // send email post
-app.post('/sendEmail', async (req,res) => {
+app.post('/sendEmail', async (req, res) => {
   // ?emailAddress=alecjmaly@gmail.com&emailPassword=....
   try {
     html = await getDataHTML();
@@ -224,6 +226,7 @@ app.get('/ping', (req, res) => {
 
 // get random data
 app.get('*', async (req, res) => {
+  let html = ''
   try {
     html = await getDataHTML();
   } catch {
