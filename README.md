@@ -41,6 +41,9 @@ Clone Repo, Dockerize (command below), then host in Azure - App Service
 npm run dockerize
 ```
 
+## TO DO
+[List of LDAP Attributes Supported by ADMP](https://www.manageengine.com/products/ad-manager/help/csv-import-management/active-directory-ldap-attributes.html)
+
 
 
 
