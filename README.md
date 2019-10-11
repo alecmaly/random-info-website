@@ -42,9 +42,9 @@ npm run dockerize
 ```
 
 ## TO DO
-[List of LDAP Attributes Supported by ADMP](https://www.manageengine.com/products/ad-manager/help/csv-import-management/active-directory-ldap-attributes.html)
-[Exploit db](https://www.exploit-db.com)
-[HackerOne Reports](https://hackerone.com/hacktivity?sort_type=latest_disclosable_activity_at&filter=type%3Aall&page=1&range=forever)
+- [List of LDAP Attributes Supported by ADMP](https://www.manageengine.com/products/ad-manager/help/csv-import-management/active-directory-ldap-attributes.html)
+- [Exploit db](https://www.exploit-db.com)
+- [HackerOne Reports](https://hackerone.com/hacktivity?sort_type=latest_disclosable_activity_at&filter=type%3Aall&page=1&range=forever)
 
 
 
