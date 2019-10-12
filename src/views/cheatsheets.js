@@ -3,6 +3,10 @@ module.exports  = () => {
     'https://cheatsheetscdn.azureedge.net/networking/tcpip.pdf'
   ]
 
+  const tool_cheatsheets = [
+    'https://cheatsheetscdn.azureedge.net/tools/namp.png'  
+  ]
+  
   const pentesting_cheatsheets = [
     'https://cheatsheetscdn.azureedge.net/pentesting/Attack-Surfaces-Tools-and-Techniques.pdf',
     'https://cheatsheetscdn.azureedge.net/pentesting/linux-cheat-sheet.pdf',
@@ -11,7 +15,7 @@ module.exports  = () => {
   ]
 
   const reverseEngineering_cheatsheets = [
-      'https://cheatsheetscdn.azureedge.net/reverse%20engineering/analyzing-malicious-document-files.pdf',
+    'https://cheatsheetscdn.azureedge.net/reverse%20engineering/analyzing-malicious-document-files.pdf',
     'https://cheatsheetscdn.azureedge.net/reverse%20engineering/EricZimmermanCommandLineToolsCheatSheet-v1.0.pdf',
     'https://cheatsheetscdn.azureedge.net/reverse%20engineering/FOR518-Reference-Sheet.pdf',
     'https://cheatsheetscdn.azureedge.net/reverse%20engineering/hex_file_and_regex_cheat_sheet.pdf',
