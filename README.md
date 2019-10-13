@@ -47,5 +47,6 @@ npm run dockerize
 - [HackerOne Reports](https://hackerone.com/hacktivity?sort_type=latest_disclosable_activity_at&filter=type%3Aall&page=1&range=forever)
 - Add more tool cheatsheets to server.js 
     - Add additional tools? (burp suite, wireshark, commandline tools, etc.)
+- [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings)
 
 
