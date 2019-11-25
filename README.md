@@ -50,6 +50,8 @@ npm run dockerize
 - [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings)
 - [Common Protocols](https://en.wikibooks.org/wiki/Network_Plus_Certification/Technologies/Common_Protocols)
 - [GTFO Bins](https://gtfobins.github.io/)
-- [oo design patterns](https://www.oodesign.com)
+- Design Patterns
+    - [oo design patterns](https://www.oodesign.com)
+    - [sourcemaking.com](https://sourcemaking.com/) (design patterns / antipatterns / UML)
 
 
