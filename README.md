@@ -53,5 +53,5 @@ npm run dockerize
 - Design Patterns
     - [oo design patterns](https://www.oodesign.com)
     - [sourcemaking.com](https://sourcemaking.com/) (design patterns / antipatterns / UML)
-
+- [Payloads CheatSheet](https://github.com/swisskyrepo/PayloadsAllTheThings)
 
