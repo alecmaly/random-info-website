@@ -4,7 +4,7 @@ module.exports = async (axios, cheerio) => {
 
   function fixHTML(str) {
     if (str !== undefined)
-      return str.replace('<','&lt;')
+      return str.replace(/</g,'&lt;')
     return ''
   }
 

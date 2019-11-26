@@ -40,7 +40,7 @@ module.exports = async (axios, cheerio) => {
       return `
         <a class='name' href='${url}' target='_blank'>CSS Selectors</a>:<br>
         <a href='${selector_url}' target='_blank'>${selector_name}</a><br>
-        ${selector_description.replace('<','&lt;')}<br>
+        ${selector_description.replace(/</g,'&lt;')}<br>
         <span>Example: ${selector_example}</span><br>
       `
 

@@ -25,7 +25,7 @@ app.use(express.static(__dirname + '/public'));
 const site_url = 'https://random-info-website.azurewebsites.net/'
 const github_url = 'https://github.com/alecjmaly/random-info-website'
 
-
+const header = require('./views/header.html')
 const footer = require('./views/footer.html')
 const table_of_contents = require('./views/tableOfContents.html')
 
@@ -68,6 +68,7 @@ async function getDataHTML() {
 
 
       ${table_of_contents}
+      ${header}
       ${cheatsheets}
   `,
     promiseArr = [];

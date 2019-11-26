@@ -43,15 +43,11 @@ npm run dockerize
 
 ## TO DO
 - [List of LDAP Attributes Supported by ADMP](https://www.manageengine.com/products/ad-manager/help/csv-import-management/active-directory-ldap-attributes.html)
-- [Exploit db](https://www.exploit-db.com)
-- [HackerOne Reports](https://hackerone.com/hacktivity?sort_type=latest_disclosable_activity_at&filter=type%3Aall&page=1&range=forever)
+- [Common Protocols](https://en.wikibooks.org/wiki/Network_Plus_Certification/Technologies/Common_Protocols)
 - Add more tool cheatsheets to server.js 
     - Add additional tools? (burp suite, wireshark, commandline tools, etc.)
-- [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings)
-- [Common Protocols](https://en.wikibooks.org/wiki/Network_Plus_Certification/Technologies/Common_Protocols)
-- [GTFO Bins](https://gtfobins.github.io/)
-- Design Patterns
-    - [oo design patterns](https://www.oodesign.com)
-    - [sourcemaking.com](https://sourcemaking.com/) (design patterns / antipatterns / UML)
-- [Payloads CheatSheet](https://github.com/swisskyrepo/PayloadsAllTheThings)
 
+- Add Random
+  - [GTFO Bins](https://gtfobins.github.io/)
+  - [LOLBAS](https://lolbas-project.github.io/)
+  - ?? [HackerOne Reports](https://hackerone.com/hacktivity?sort_type=latest_disclosable_activity_at&filter=type%3Aall&page=1&range=forever)

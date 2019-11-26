@@ -44,11 +44,13 @@ module.exports  = () => {
   }
 
 
-  let cheatsheet_html = "<div class='name'>Cheatsheets</div>"
+  let cheatsheet_html = "<h2 class='category'>Cheatsheets:</h2>"
 
   cheatsheet_html += getCheatsheet(networking_cheatsheets) + '<br>';
+  // cheatsheet_html += getCheatsheet(tool_cheatsheets) + '<br>';
   cheatsheet_html += getCheatsheet(pentesting_cheatsheets) + '<br>';
   cheatsheet_html += getCheatsheet(reverseEngineering_cheatsheets) + '<br>';
+  
 
   return cheatsheet_html;
 }

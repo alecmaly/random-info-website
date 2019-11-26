@@ -40,7 +40,7 @@ module.exports = async (axios, cheerio) => {
       return `
         <a class='name' href='${url}' target='_blank'>CSS Property</a>:<br>
         <a href='${property_url}' target='_blank'>${property_name}</a><br>
-        ${property_description.replace('<','&lt;')}<br>
+        ${property_description.replace(/</g,'&lt;')}<br>
       `
 
     })
