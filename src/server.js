@@ -246,14 +246,20 @@ app.get('*', async (req, res) => {
       <meta property="og:type" content="website">
       <meta property="og:image" content="https://cheatsheets.blob.core.windows.net/pdfs/table%20of%20contents.PNG">
 
+      <!-- promise polyfill -->
+      <script src='/polyfill/promise.js'></script>
+      <!-- fetch polyfill -->
+      <script src='/polyfill/fetch.js'></script>
+
+      <script>
+        function getContent() {
+          fetch(window.location.origin + '/content')
+            .then(function(resp) { return resp.text() })
+              .then(function(html) { document.body.innerHTML = html })
+        }
+      </script>
     </head>
-    <script>
-      function getContent() {
-        fetch(window.location.origin + '/content')
-          .then(function(resp) { return resp.text() })
-            .then(function(html) { document.body.innerHTML = html })
-      }
-    </script>
+
 
     <body onload='getContent()'>
       Loading - Please wait
