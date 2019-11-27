@@ -29,11 +29,11 @@ const header = require('./views/header.html')
 const footer = require('./views/footer.html')
 const table_of_contents = require('./views/tableOfContents.html')
 
-const cheatsheets = require('./views/cheatsheets')()
 
 
 // run syncronously
 async function getDataHTML() {
+  const cheatsheets = require('./views/cheatsheets')()
 
   function BuildSection(id, title, datasources, header='', footer='') {
     promiseArr.push(
@@ -53,8 +53,16 @@ async function getDataHTML() {
   <!DOCTYPE html>
   <html>
     <head>
-      <meta name="viewport" content="user-scalable=yes">
       <title>Random Info Website</title>
+
+      <meta name="viewport" content="user-scalable=yes">
+      <meta property="og:title" content="Random Info Website">
+      <meta property="og:site_name" content="Random Info Website">
+      <meta property="og:url" content="https://random-info-website.azurewebsites.net">
+      <meta property="og:description" content="**Give it a minute to load** This site scrapes several websites on demand to serve a single page with random information and links. Hopefully you learn something new!">
+      <meta property="og:type" content="website">
+      <meta property="og:image" content="https://cheatsheets.blob.core.windows.net/pdfs/table%20of%20contents.PNG">
+
       <link rel="stylesheet" href="/css/style.css">
     </head>
 
