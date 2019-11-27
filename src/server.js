@@ -55,7 +55,7 @@ async function getDataHTML() {
       
       <link rel="stylesheet" href="/css/style.css">
       <h1 style='text-align:center'>
-        <a href='${site_url}}' target='_blank'>Random Info Website</a>
+        <a href='${site_url}' target='_blank'>Random Info Website</a>
         (<a href='${github_url}' target='_blank'>github</a>)
       </h1>
 
