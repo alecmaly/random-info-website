@@ -22,7 +22,7 @@ app.use(express.json())
 app.use(express.static(__dirname + '/public'));
 
 
-const site_url = 'https://random-info-website.azurewebsites.net/'
+const site_url = 'https://random-info-website.azurewebsites.net'
 const github_url = 'https://github.com/alecjmaly/random-info-website'
 
 const header = require('./views/header.html')
@@ -50,25 +50,10 @@ async function getDataHTML() {
 
 
   let html = `
-  <!DOCTYPE html>
-  <html>
-    <head>
-      <title>Random Info Website</title>
-
-      <meta name="viewport" content="user-scalable=yes">
-      <meta property="og:title" content="Random Info Website">
-      <meta property="og:site_name" content="Random Info Website">
-      <meta property="og:url" content="https://random-info-website.azurewebsites.net">
-      <meta property="og:description" content="**Give it a minute to load** This site scrapes several websites on demand to serve a single page with random information and links. Hopefully you learn something new!">
-      <meta property="og:type" content="website">
-      <meta property="og:image" content="https://cheatsheets.blob.core.windows.net/pdfs/table%20of%20contents.PNG">
-
-      <link rel="stylesheet" href="/css/style.css">
-    </head>
-
-    <body>
       <div class='main-body'>
       <a id='home' name='home'></a>
+      
+      <link rel="stylesheet" href="/css/style.css">
       <h1 style='text-align:center'>
         <a href='${site_url}}' target='_blank'>Random Info Website</a>
         (<a href='${github_url}' target='_blank'>github</a>)
@@ -177,8 +162,6 @@ async function getDataHTML() {
 
   html += `
       ${footer}
-      </body>
-    </html>
   `
 
   return html;
@@ -233,14 +216,49 @@ app.get('/ping', (req, res) => {
   res.send('pinged')
 })
 
+
 // get random data
-app.get('*', async (req, res) => {
+app.get('/content', async (req, res) => {
   let html = ''
   try {
     html = await getDataHTML();
   } catch {
     html = 'failed to fetch data'
   }
+
+  res.send(html);
+})
+
+
+// get random data
+app.get('*', async (req, res) => {
+  let html = `
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <title>Random Info Website</title>
+
+      <meta name="viewport" content="user-scalable=yes">
+      <meta property="og:title" content="Random Info Website">
+      <meta property="og:site_name" content="Random Info Website">
+      <meta property="og:url" content="https://random-info-website.azurewebsites.net">
+      <meta property="og:description" content="**Give it a minute to load** This site scrapes several websites on demand to serve a single page with random information and links. Hopefully you learn something new!">
+      <meta property="og:type" content="website">
+      <meta property="og:image" content="https://cheatsheets.blob.core.windows.net/pdfs/table%20of%20contents.PNG">
+
+    </head>
+    <script>
+      function getContent() {
+        fetch(window.location.origin + '/content')
+          .then(function(resp) { return resp.text() })
+            .then(function(html) { document.body.innerHTML = html })
+      }
+    </script>
+
+    <body onload='getContent()'>
+      Loading - Please wait
+    </body>
+  </html>`
 
   res.send(html);
 })
