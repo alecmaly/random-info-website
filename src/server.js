@@ -22,7 +22,7 @@ app.use(express.json())
 app.use(express.static(__dirname + '/public'));
 
 
-const site_url = 'https://random-info-website.azurewebsites.net/'
+
 const github_url = 'https://github.com/alecjmaly/random-info-website'
 
 const header = require('./views/header.html')
@@ -70,7 +70,7 @@ async function getDataHTML() {
       <div class='main-body'>
       <a id='home' name='home'></a>
       <h1 style='text-align:center'>
-        <a href='${site_url}}' target='_blank'>Random Info Website</a>
+        <a href='/' target='_blank'>Random Info Website</a>
         (<a href='${github_url}' target='_blank'>github</a>)
       </h1>
 
