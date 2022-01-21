@@ -33,8 +33,12 @@ body {
 }
 
 
+.ul-two-columns {
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+}
 
-/* 
 .two-columns {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -45,4 +49,4 @@ body {
 .cell {
   border: .5px dashed lightgrey;
   padding: 3px;
-} */
+} 

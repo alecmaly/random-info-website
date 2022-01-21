@@ -97,20 +97,10 @@ async function getDataHTML() {
   ]
   BuildSection('other', 'Other:', other)
 
-
-  const html5 = [
-    './scrapers/web/html/html_tags',
-    './scrapers/web/html/html_attributes',
-    './scrapers/web/html/html_events'
+  const windows_sysinternals = [
+    './scrapers/windows_sysinternals/windows_sysinternals'
   ]
-  BuildSection('html5', 'HTML5:', html5)
-
-
-  const css = [
-    './scrapers/web/css/css_properties',
-    './scrapers/web/css/css_selectors'
-  ]
-  BuildSection('css', 'CSS:', css)
+  BuildSection('windowsSysinternals', 'Windows Sysinternals:', windows_sysinternals, "<div class='two-columns'>", "</div>")
 
   const scripting_commands = [
     './scrapers/scripting/bash_command',
@@ -121,26 +111,6 @@ async function getDataHTML() {
     './scrapers/scripting/python'
   ]
   BuildSection('scriptingLanguages', 'Scripting Languages:', scripting_commands)
-
-
-  const windows_sysinternals = [
-      './scrapers/windows_sysinternals/windows_sysinternals'
-  ]
-  BuildSection('windowsSysinternals', 'Windows Sysinternals:', windows_sysinternals, "<div class='two-columns'>", "</div>")
-
-  const react_js = [
-    './scrapers/react/reactBits'
-  ]
-  BuildSection('reactjs', 'React:', react_js, `
-    <p>
-      Another resource: <a href="https://github.com/enaqx/awesome-react">Awesome-React</a>
-    </p>`)
-
-
-  const cloud_services = [
-    './scrapers/cloud/azure'
-  ]
-  BuildSection('cloudServices', 'Cloud Services:', cloud_services)
 
   const languages = [
     './scrapers/languages/cpp'
@@ -159,6 +129,33 @@ async function getDataHTML() {
     './scrapers/database/oracle'
   ]
   BuildSection('databases', 'Databases:', database_tools)
+
+  
+  const html5 = [
+    './scrapers/web/html/html_tags',
+    './scrapers/web/html/html_attributes',
+    './scrapers/web/html/html_events'
+  ]
+  BuildSection('html5', 'HTML5:', html5)
+
+  const css = [
+    './scrapers/web/css/css_properties',
+    './scrapers/web/css/css_selectors'
+  ]
+  BuildSection('css', 'CSS:', css)
+
+  const react_js = [
+    './scrapers/react/reactBits'
+  ]
+  BuildSection('reactjs', 'React:', react_js, `
+    <p>
+      Another resource: <a href="https://github.com/enaqx/awesome-react">Awesome-React</a>
+    </p>`)
+
+  const cloud_services = [
+    './scrapers/cloud/azure'
+  ]
+  BuildSection('cloudServices', 'Cloud Services:', cloud_services)
 
   // await all promises to return
   // allows async scrapign across all sites

@@ -51,6 +51,6 @@ module.exports  = () => {
   cheatsheet_html += getCheatsheet(pentesting_cheatsheets) + '<br>';
   cheatsheet_html += getCheatsheet(reverseEngineering_cheatsheets) + '<br>';
   
-
-  return cheatsheet_html;
+  return ''
+  // return cheatsheet_html
 }
