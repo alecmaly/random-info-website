@@ -8,6 +8,7 @@ const nodemailer = require('nodemailer');
 const express = require('express');
 const fs = require('fs');
 
+
 require.extensions['.html'] = function (module, filename) {
   module.exports = fs.readFileSync(filename, 'utf8');
 };
@@ -221,16 +222,25 @@ app.get('/ping', (req, res) => {
 })
 
 // get random data
-app.get('/', async (req, res) => {
+app.get('/random', async (req, res) => {
   let html = ''
   try {
     html = await getDataHTML();
-  } catch {
-    html = 'failed to fetch data'
+  } catch (e) {
+    console.trace("Here I am!")
+    
+    html = `failed to fetch data:<br><br>${e}<br><br>`
   }
 
   res.send(html);
 })
+
+app.get('/', async (req, res) => {
+  let html = 'Please wait while webpages are scraped for data... this may take a few seconds.<script>window.location.href = "/random"</script>'
+
+  res.send(html);
+})
+
 
 app.listen(port, () => console.log(`App listening on port ${port}!`))
 

@@ -56,7 +56,7 @@ module.exports  = async (axios, cheerio) => {
             return `${command_name}: FAILED`
           }
         })
-        .catch()
+        .catch(console.error)
       )
     })
   return Promise.all(promise_arr).then(value => `
