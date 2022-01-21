@@ -70,7 +70,7 @@ async function getDataHTML() {
       <div class='main-body'>
       <a id='home' name='home'></a>
       <h1 style='text-align:center'>
-        <a href='/' target='_blank'>Random Info Website</a>
+        <a href='/'>Random Info Website</a>
         (<a href='${github_url}' target='_blank'>github</a>)
       </h1>
 
@@ -217,8 +217,7 @@ app.post('/sendEmail', async (req, res) => {
 
 
 app.get('/ping', (req, res) => {
-  console.log('pinged')
-  res.send('pinged')
+  res.send('pong')
 })
 
 // get random data
