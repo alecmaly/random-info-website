@@ -83,6 +83,20 @@ async function getDataHTML() {
 
 
 
+    
+  const programming_best_practices = [
+    './scrapers/pentesting/OWASPCheatSheet',
+    './scrapers/programmingBestPractices/designPatterns',
+    './scrapers/programmingBestPractices/dataStructures',
+    './scrapers/programmingBestPractices/algorithms'
+  ]
+  BuildSection('programmingBestPractices', 'Programming Best Practices:', programming_best_practices)
+
+  const other = [
+    './scrapers/other/logicalFallacies'
+  ]
+  BuildSection('other', 'Other:', other)
+
 
   const html5 = [
     './scrapers/web/html/html_tags',
@@ -97,13 +111,6 @@ async function getDataHTML() {
     './scrapers/web/css/css_selectors'
   ]
   BuildSection('css', 'CSS:', css)
-
-
-
-  const pentesting_tools = [
-    './scrapers/pentesting/OWASPCheatSheet',
-  ]
-  BuildSection('pentestingTools', 'Security and Pentesting:', pentesting_tools)
 
   const scripting_commands = [
     './scrapers/scripting/bash_command',
@@ -120,15 +127,6 @@ async function getDataHTML() {
       './scrapers/windows_sysinternals/windows_sysinternals'
   ]
   BuildSection('windowsSysinternals', 'Windows Sysinternals:', windows_sysinternals, "<div class='two-columns'>", "</div>")
-
-
-  const programming_best_practices = [
-    './scrapers/programmingBestPractices/designPatterns',
-    './scrapers/programmingBestPractices/dataStructures',
-    './scrapers/programmingBestPractices/algorithms'
-  ]
-  BuildSection('programmingBestPractices', 'Programming Best Practices:', programming_best_practices)
-
 
   const react_js = [
     './scrapers/react/reactBits'
@@ -161,12 +159,6 @@ async function getDataHTML() {
     './scrapers/database/oracle'
   ]
   BuildSection('databases', 'Databases:', database_tools)
-
-  const other = [
-    './scrapers/other/logicalFallacies'
-  ]
-  BuildSection('other', 'Other:', other)
-
 
   // await all promises to return
   // allows async scrapign across all sites
