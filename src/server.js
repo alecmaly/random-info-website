@@ -221,6 +221,13 @@ app.get('/ping', (req, res) => {
   res.send('pong')
 })
 
+
+app.get('/', async (req, res) => {
+  let html = 'Please wait while webpages are scraped for data... this may take a few seconds.<script>window.location.href = "/random"</script>'
+
+  res.send(html);
+})
+
 // get random data
 app.get('/random', async (req, res) => {
   let html = ''
@@ -231,12 +238,6 @@ app.get('/random', async (req, res) => {
     
     html = `failed to fetch data:<br><br>${e}<br><br>`
   }
-
-  res.send(html);
-})
-
-app.get('/', async (req, res) => {
-  let html = 'Please wait while webpages are scraped for data... this may take a few seconds.<script>window.location.href = "/random"</script>'
 
   res.send(html);
 })
