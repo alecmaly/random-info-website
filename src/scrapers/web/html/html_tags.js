@@ -10,36 +10,40 @@ module.exports = async (axios, cheerio) => {
 
   return axios(url)
     .then(response => {
-      const html = response.data;
-      const $ = cheerio.load(html)
-      const tags = $('#htmltags tr');
+      try {
+        const html = response.data;
+        const $ = cheerio.load(html)
+        const tags = $('#htmltags tr');
 
 
-      const random_tag = tags[Math.floor(Math.random()*tags.length)];
+        const random_tag = tags[Math.floor(Math.random()*tags.length)];
 
-      const td_name = random_tag.children[1]
-      const td_description = random_tag.children[3]
+        const td_name = random_tag.children[1]
+        const td_description = random_tag.children[3]
 
 
-      // console.log(td_name.children[0].children[0].data)
+        // console.log(td_name.children[0].children[0].data)
 
-      // css property data
-      const htmlTag_name = td_name.children[0].children[0].data
-      const htmlTag_url = root_url + td_name.children[0].attribs.href
-      const htmlTag_description = td_description.children[0].data
+        // css property data
+        const htmlTag_name = td_name.children[0].children[0].data
+        const htmlTag_url = root_url + td_name.children[0].attribs.href
+        const htmlTag_description = td_description.children[0].data
 
-      // print to screen
-      // console.log('Linux command:');
-      // console.log(htmlTag_name);
-      // console.log(htmlTag_description);
-      // console.log(htmlTag_url);
-      // console.log()
+        // print to screen
+        // console.log('Linux command:');
+        // console.log(htmlTag_name);
+        // console.log(htmlTag_description);
+        // console.log(htmlTag_url);
+        // console.log()
 
-      return `
-        <a class='name' href='${url}' target='_blank'>HTML5 Tags</a>:<br>
-        <a href='${htmlTag_url}' target='_blank'>${fixHTML(htmlTag_name)}</a><br>
-        ${fixHTML(htmlTag_description)}<br>
-      `
+        return `
+          <a class='name' href='${url}' target='_blank'>HTML5 Tags</a>:<br>
+          <a href='${htmlTag_url}' target='_blank'>${fixHTML(htmlTag_name)}</a><br>
+          ${fixHTML(htmlTag_description)}<br>
+        `
+      } catch {
+        return "HTML Tags: FAILED"
+      }
 
     })
     .catch(console.error);

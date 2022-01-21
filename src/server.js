@@ -17,7 +17,7 @@ require('dotenv').config()
 
 // express config
 const app = express()
-const port = 80
+const port = process.env.PORT || 80
 app.use(express.json())
 app.use(express.static(__dirname + '/public'));
 
@@ -102,7 +102,6 @@ async function getDataHTML() {
 
   const pentesting_tools = [
     './scrapers/pentesting/OWASPCheatSheet',
-    './scrapers/pentesting/kali_tool'
   ]
   BuildSection('pentestingTools', 'Security and Pentesting:', pentesting_tools)
 
@@ -234,7 +233,7 @@ app.get('/ping', (req, res) => {
 })
 
 // get random data
-app.get('*', async (req, res) => {
+app.get('/', async (req, res) => {
   let html = ''
   try {
     html = await getDataHTML();

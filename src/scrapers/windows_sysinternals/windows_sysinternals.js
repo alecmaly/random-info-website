@@ -15,36 +15,40 @@ module.exports  = async (axios, cheerio, category) => {
     promise_arr.push(
       axios(url + category)
         .then(response => {
-          const html = response.data;
-          const $ = cheerio.load(html)
-          const items = $('p > a')
+          try {
+            const html = response.data;
+            const $ = cheerio.load(html)
+            const items = $('p > a')
 
-          // skipping first row
-          const random_item = items[Math.floor(Math.random()*(items.length))];
-
-
-
-          const item_name = random_item.children[0].data
-          const item_url = url + random_item.attribs.href
-          const item_description = random_item.next.next.data
+            // skipping first row
+            const random_item = items[Math.floor(Math.random()*(items.length))];
 
 
-          // // print to screen
-          // console.log('Kali Tool:');
-          // console.log(tool_name)
-          // console.log(tool_url)
-          // console.log(tool_category)
-          // console.log(random_item)
 
-          return `
-            <div class='cell'>
-              <a class='name' href='${url}' target='_blank'>${
-                titleCase(category.replace(/-/g, ' '))
-              }</a>:<br>
-              <a href='${item_url}' target='_blank'>${item_name}</a><br>
-              ${item_description}<br>
-            </div>
-          `
+            const item_name = random_item.children[0].data
+            const item_url = url + random_item.attribs.href
+            const item_description = random_item.next.next.data
+
+
+            // // print to screen
+            // console.log('Kali Tool:');
+            // console.log(tool_name)
+            // console.log(tool_url)
+            // console.log(tool_category)
+            // console.log(random_item)
+
+            return `
+              <div class='cell'>
+                <a class='name' href='${url}' target='_blank'>${
+                  titleCase(category.replace(/-/g, ' '))
+                }</a>:<br>
+                <a href='${item_url}' target='_blank'>${item_name}</a><br>
+                ${item_description}<br>
+              </div>
+            `
+          } catch {
+            return "Windows SysInternals: FAILED"
+          }
         })
         .catch(console.error)
     )
