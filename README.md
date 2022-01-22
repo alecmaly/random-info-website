@@ -44,16 +44,12 @@ npm run dockerize
 ## TO DO
 - [OWASP Testing Guide](https://www.owasp.org/index.php/OWASP_Testing_Guide_v4_Table_of_Contents)
 - [owasp mobile testing guide](https://github.com/OWASP/owasp-mstg)
-- hacktricks
-- payloads all the things
-- [awesome hacking resources](https://github.com/vitalysim/Awesome-Hacking-Resources)
-- [game hacking resources](https://github.com/dsasmblr/game-hacking)
-- [List of LDAP Attributes Supported by ADMP](https://www.manageengine.com/products/ad-manager/help/csv-import-management/active-directory-ldap-attributes.html)
-- [Common Protocols](https://en.wikibooks.org/wiki/Network_Plus_Certification/Technologies/Common_Protocols)
+- ?? [List of LDAP Attributes Supported by ADMP](https://www.manageengine.com/products/ad-manager/help/csv-import-management/active-directory-ldap-attributes.html)
+- ?? [Common Protocols](https://en.wikibooks.org/wiki/Network_Plus_Certification/Technologies/Common_Protocols)
 - Add more tool cheatsheets to server.js 
     - Add additional tools? (burp suite, wireshark, commandline tools, etc.)
 
 - Add Random
-  - [GTFO Bins](https://gtfobins.github.io/)
-  - [LOLBAS](https://lolbas-project.github.io/)
+  - ?? [GTFO Bins](https://gtfobins.github.io/)
+  - ?? [LOLBAS](https://lolbas-project.github.io/)
   - ?? [HackerOne Reports](https://hackerone.com/hacktivity?sort_type=latest_disclosable_activity_at&filter=type%3Aall&page=1&range=forever)

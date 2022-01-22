@@ -8,7 +8,7 @@ module.exports  = async (axios, cheerio) => {
         const $ = cheerio.load(html)
         const items = $('.entry-content').find("[href*='geeks']");
 
-        // skipping first row
+        
         const random_item = items[Math.floor(Math.random()*(items.length))];
 
         const item_name = random_item.children[0].data

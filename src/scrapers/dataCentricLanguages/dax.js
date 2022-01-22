@@ -23,8 +23,6 @@ module.exports  = async (axios, cheerio) => {
             const $ = cheerio.load(html)
             const rows = $('tr');
 
-
-            // skipping first row
             const random_command = rows[Math.floor(Math.random()*(rows.length))];
 
             // build command details
@@ -60,7 +58,7 @@ module.exports  = async (axios, cheerio) => {
       )
     })
   return Promise.all(promise_arr).then(value => `
-    <div class='name'><a href='${url}' target='_blank'>DAX Commands</a>:</div><br>
+    <div><a class='name' href='${url}' target='_blank'>DAX Commands</a>:</div><br>
     <div class='two-columns'>${value.join('')}</div>`)
 }
 

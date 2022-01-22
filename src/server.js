@@ -1,7 +1,7 @@
 //https://pusher.com/tutorials/web-scraper-node
 
 // pl-scraper.js
-
+const https = require("https")
 const axios = require('axios');
 const cheerio = require('cheerio');
 const nodemailer = require('nodemailer');
@@ -83,10 +83,17 @@ async function getDataHTML() {
     promiseArr = [];
 
 
-
+  const hacking_security = [
+    './scrapers/hacking_security/OWASPCheatSheet',
+    './scrapers/hacking_security/githubAwesomeHackingResources',
+    './scrapers/hacking_security/githubGameHackingResources',
+    './scrapers/hacking_security/githubPayloadsAllTheThings',
+    './scrapers/hacking_security/githubPayloadsAllTheThings_MethodologyResources',
+    './scrapers/hacking_security/HackTricks'
+  ]
+  BuildSection('hacking_security', 'Hacking & Security:', hacking_security)
     
   const programming_best_practices = [
-    './scrapers/pentesting/OWASPCheatSheet',
     './scrapers/programmingBestPractices/designPatterns',
     './scrapers/programmingBestPractices/dataStructures',
     './scrapers/programmingBestPractices/algorithms'

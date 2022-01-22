@@ -9,7 +9,7 @@ module.exports  = async (axios, cheerio) => {
         const $ = cheerio.load(html)
         const items = $('[href*="docs/handbook"]');
 
-        // skipping first row
+        
         const random_command = items[Math.floor(Math.random()*(items.length))];
 
 

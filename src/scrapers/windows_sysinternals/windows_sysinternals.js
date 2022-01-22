@@ -20,7 +20,7 @@ module.exports  = async (axios, cheerio, category) => {
             const $ = cheerio.load(html)
             const items = $('p > a')
 
-            // skipping first row
+            
             const random_item = items[Math.floor(Math.random()*(items.length))];
 
 

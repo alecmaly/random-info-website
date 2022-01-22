@@ -18,7 +18,7 @@ module.exports  = async (axios, cheerio) => {
             const rows = $('tr');
 
 
-            // skipping first row
+            
             const random_command = rows[Math.floor(Math.random()*(rows.length))];
 
             // build command details
