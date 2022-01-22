@@ -85,6 +85,8 @@ async function getDataHTML() {
 
   const hacking_security = [
     './scrapers/hacking_security/OWASPCheatSheet',
+    './scrapers/hacking_security/OWASPTestingGuide',
+    './scrapers/hacking_security/OWASPMobileTestingGuide',
     './scrapers/hacking_security/githubAwesomeHackingResources',
     './scrapers/hacking_security/githubGameHackingResources',
     './scrapers/hacking_security/githubPayloadsAllTheThings',

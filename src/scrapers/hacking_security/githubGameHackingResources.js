@@ -7,7 +7,7 @@ module.exports  = async (axios, cheerio) => {
         const html = response.data;
         const $ = cheerio.load(html);
         let items = $('table a');
-                items = Array.from(items).filter(ele => { return $(ele.children[0]).text() != 'here' })
+        items = Array.from(items).filter(ele => { return $(ele.children[0]).text() != 'here' })
         
         const random_item = items[Math.floor(Math.random()*(items.length))];
 
