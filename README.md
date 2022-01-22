@@ -46,6 +46,8 @@ npm run dockerize
 - [owasp mobile testing guide](https://github.com/OWASP/owasp-mstg)
 - hacktricks
 - payloads all the things
+- [awesome hacking resources](https://github.com/vitalysim/Awesome-Hacking-Resources)
+- [game hacking resources](https://github.com/dsasmblr/game-hacking)
 - [List of LDAP Attributes Supported by ADMP](https://www.manageengine.com/products/ad-manager/help/csv-import-management/active-directory-ldap-attributes.html)
 - [Common Protocols](https://en.wikibooks.org/wiki/Network_Plus_Certification/Technologies/Common_Protocols)
 - Add more tool cheatsheets to server.js 
