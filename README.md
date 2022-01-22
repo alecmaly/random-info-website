@@ -44,6 +44,8 @@ npm run dockerize
 ## TO DO
 - [OWASP Testing Guide](https://www.owasp.org/index.php/OWASP_Testing_Guide_v4_Table_of_Contents)
 - [owasp mobile testing guide](https://github.com/OWASP/owasp-mstg)
+- hacktricks
+- payloads all the things
 - [List of LDAP Attributes Supported by ADMP](https://www.manageengine.com/products/ad-manager/help/csv-import-management/active-directory-ldap-attributes.html)
 - [Common Protocols](https://en.wikibooks.org/wiki/Network_Plus_Certification/Technologies/Common_Protocols)
 - Add more tool cheatsheets to server.js 
