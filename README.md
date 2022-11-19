@@ -4,7 +4,6 @@ This project gets random information for learning purposes.
 Navigating to the [Site Hosted in Azure](https://random-info-website.azurewebsites.net/) will result in random info.
 
 
-
 # Send email
 To send an email, send a post request with email and password. 
 This endpoint will send an email of random data given proper email credentials
