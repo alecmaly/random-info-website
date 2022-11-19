@@ -232,7 +232,7 @@ app.get('/ping', (req, res) => {
 
 
 app.get('/', async (req, res) => {
-  let html = '<h2>Please wait while webpages are scraped for data... this may take a few seconds.</h2><script>window.location.origin = "/random"</script>'
+  let html = '<h2>Please wait while webpages are scraped for data... this may take a few seconds.</h2><script>window.location.href = window.location.origin + "/random"</script>'
 
   res.send(html);
 })
