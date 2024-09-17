@@ -1,6 +1,6 @@
 # build:
 
-FROM node:10
+FROM node:19
 
 # The Dockerfile's author
 LABEL Alec Maly
